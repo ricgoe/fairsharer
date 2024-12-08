@@ -21,3 +21,7 @@ def test_fair_sharer_invalid_num_iterations():
 def test_fair_sharer_invalid_share():
     with pytest.raises(TypeError, match="'share' must be a float"):
         fair_sharer([1, 2, 3], 10, "0.1")
+        
+def test_fair_sharer_invalid_share_range():
+    with pytest.raises(ValueError, match="'share' must be between 0 and 1"):
+        fair_sharer([1, 2, 3], 10, 2)
